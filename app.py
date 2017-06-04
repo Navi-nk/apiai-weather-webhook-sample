@@ -56,7 +56,6 @@ def processRequest(req):
         res = getRouteDetails(location)
         print("Response:")
         print(res)
-
         return {
         "speech": res,
         "displayText": res,

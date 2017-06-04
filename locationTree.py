@@ -1,18 +1,8 @@
-#"A1"
-#"center of maritime studies", "prince george's park"
-#"opposite house 12","house 7","pgp"
 
-#"A2"
-#"alumni house","school of computing","deck","faculty of arts and social science","computer center","library","techno edge","faculty of engineering","yusof ishak house","museum","university health centre","sports hall","university hall","faculty of science","kent ridge mrt","prince george's park"
-#"opposite nuss", "com 2", "ventus", "computer centre", "opposite yusof ishak house", "museum", "university health centre", "opposite university hall", "s17", "opposite kent ridge mrt station", "pgp"
+#Implmentation of tree DS to find the route details
+#for a given destination buses available and bus stops info is returned
+#Written by Navi
 
-#"B2"
-#"alumni house","deck","faculty of arts and social science","computer center","library","techno edge","faculty of engineering","yusof ishak house","university town", "raffles hall","kent ridge bus terminal"
-#"opposite nuss", "ventus", "computer centre", "opposite yusof ishak house", "university town", "raffles hall", "ea", "kent ridge bus terminal"
-
-#"D1"
-#"alumni house","school of computing","deck","faculty of arts and social science","computer center","library","techno edge","faculty of engineering","yusof ishak house","museum","university town"
-#"opposite Hon sui sen memorial library", "opposite nuss", "com 2", "ventus", "computer centre", "opposite yusof ishak house", "museum", "university town", 
 
 class Node:
     def __init__(self, value):
@@ -71,7 +61,7 @@ def getRouteDetails(location):
     bus=[]
     area=[]
     stop=[]
-    f#or root in locationTree:
+    for root in locationTree:
         #print("Inside fun1")   
         #print(root.getValue()+'->')  #bus
         #for val in root.getChildren():
@@ -93,7 +83,7 @@ def getRouteDetails(location):
                     area.append(a.getValue())
                     stop.append(val.getValue())
         else:
-            print("WTF")
+            print("Route not found in "+root.getValue())
     buses=""
     n=len(bus)
     for i in range(n):
