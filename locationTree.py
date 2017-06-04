@@ -36,7 +36,7 @@ class Node:
         
     def find(self, value):
         print("WTF"+value)
-        if self._value is value:
+        if self._value == value:
             print("return "+value)
             return self
         for node in self._children:
