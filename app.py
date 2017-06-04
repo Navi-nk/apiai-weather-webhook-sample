@@ -52,7 +52,9 @@ def processRequest(req):
         res = makeWebhookResult(data)
         return res
     elif req.get("result").get("action") == "nusBusRouteFind":
+        print("inside")
         location = req.get("result").get("parameters").get("nusLocations")
+        print("location")
         res = getRouteDetails(location)
         print("Response:")
         print(res)
