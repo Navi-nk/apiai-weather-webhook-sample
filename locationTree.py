@@ -79,17 +79,22 @@ def getRouteDetails(location):
   #      print('\t'+val.getValue()+'->')  #area
   #      for val1 in val.getChildren():
   #          print('\t\t'+val1.getValue())  #stop
-            
+        print(','+location+',')
         a=root.find(location)
         if a is not None:
+            print("Inside fun21")
             if not a.getChildren():
+                print("Inside fun22")
                 bus.append(root.getValue())
                 area.append((a.getParent()).getValue())
                 stop.append(a.getValue())
             elif a.getParent() is None:
+                print("Inside fun23")
                 print(a.getValue() +' is a bus')
             else:
+                print("Inside fun24")
                 for val in a.getChildren():
+                    print("Inside fun25")
                     bus.append(root.getValue())
                     area.append(a.getValue())
                     stop.append(val.getValue())
