@@ -35,9 +35,7 @@ class Node:
         node._children.append(self)  
         
     def find(self, value):
-        print("WTF"+value)
         if self._value == value:
-            print("return "+value)
             return self
         for node in self._children:
             n = node.find(value)
@@ -73,31 +71,24 @@ def getRouteDetails(location):
     bus=[]
     area=[]
     stop=[]
-    print("Inside fun")
-    for root in locationTree:
-        print("Inside fun1")   
-        print(root.getValue()+'->')  #bus
-        for val in root.getChildren():
-            print('\t'+val.getValue()+'->')  #area
-            for val1 in val.getChildren():
-                print('\t\t'+val1.getValue())  #stop
-        print(','+location+',')
-        a=root.find(location)
+    f#or root in locationTree:
+        #print("Inside fun1")   
+        #print(root.getValue()+'->')  #bus
+        #for val in root.getChildren():
+            #print('\t'+val.getValue()+'->')  #area
+            #for val1 in val.getChildren():
+                #print('\t\t'+val1.getValue())  #stop
         
+        a=root.find(location)
         if a is not None:
-            print("Inside fun21")
             if not a.getChildren():
-                print("Inside fun22")
                 bus.append(root.getValue())
                 area.append((a.getParent()).getValue())
                 stop.append(a.getValue())
             elif a.getParent() is None:
-                print("Inside fun23")
                 print(a.getValue() +' is a bus')
             else:
-                print("Inside fun24")
                 for val in a.getChildren():
-                    print("Inside fun25")
                     bus.append(root.getValue())
                     area.append(a.getValue())
                     stop.append(val.getValue())
@@ -111,7 +102,6 @@ def getRouteDetails(location):
         else:
             buses+=bus[i]+ (',' if i<n-2 else ('' if i==n-1 else' or ' ))
             res="Please use one of the buses "+buses+" and get down at stop "+stop[0]+" to reach " + area[0]
-    print(res)
     return res
                 
 
