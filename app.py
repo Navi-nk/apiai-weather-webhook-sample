@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+#modified by navi
+#webhook example taken from api docs
 
 from __future__ import print_function
 from future.standard_library import install_aliases
@@ -14,6 +16,8 @@ import os
 from flask import Flask
 from flask import request
 from flask import make_response
+
+import locationTree
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -36,18 +40,28 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "yahooWeatherForecast":
+    if req.get("result").get("action") == "yahooWeatherForecast":
+        baseurl = "https://query.yahooapis.com/v1/public/yql?"
+        yql_query = makeYqlQuery(req)
+        if yql_query is None:
+            return {}
+        yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
+        result = urlopen(yql_url).read()
+        data = json.loads(result)
+        res = makeWebhookResult(data)
+        return res
+    elif req.get("result").get("action") == "nusBusRouteFind":
+        location = req.get("result").get("parameters").get("nusLocations")
+        res = getRouteDetails(location)
+        return {
+        "speech": res,
+        "displayText": res,
+        # "data": data,
+        # "contextOut": [],
+        "source": "apiai-weather-webhook-sample"
+    }
+    else:
         return {}
-    baseurl = "https://query.yahooapis.com/v1/public/yql?"
-    yql_query = makeYqlQuery(req)
-    if yql_query is None:
-        return {}
-    yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
-    result = urlopen(yql_url).read()
-    data = json.loads(result)
-    res = makeWebhookResult(data)
-    return res
-
 
 def makeYqlQuery(req):
     result = req.get("result")
@@ -100,10 +114,16 @@ def makeWebhookResult(data):
         "source": "apiai-weather-webhook-sample"
     }
 
+def getRouteDetails(location):
+    find
+
+
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
     print("Starting app on port %d" % port)
+    #added by Navi
+    createNusRouteTree()
 
     app.run(debug=False, port=port, host='0.0.0.0')
