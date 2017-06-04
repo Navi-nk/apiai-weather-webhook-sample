@@ -125,10 +125,6 @@ def makeWebhookResult(data):
         "source": "apiai-weather-webhook-sample"
     }
 
-def getRouteDetails(location):
-    find
-
-
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
