@@ -81,6 +81,7 @@ def getRouteDetails(location):
                 print('\t\t'+val1.getValue())  #stop
         print(','+location+',')
         a=root.find(location)
+        print(a.getValue())
         if a is not None:
             print("Inside fun21")
             if not a.getChildren():
