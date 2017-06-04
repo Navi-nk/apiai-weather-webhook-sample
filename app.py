@@ -55,7 +55,7 @@ def processRequest(req):
         location = req.get("result").get("parameters").get("nusLocations")
         res = getRouteDetails(location)
         print("Response:")
-         print(res)
+        print(res)
 
         return {
         "speech": res,
