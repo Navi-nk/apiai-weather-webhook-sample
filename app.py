@@ -61,7 +61,11 @@ def processRequest(req):
         "source": "apiai-weather-webhook-sample"
     }
     else:
-        return {}
+        return { "speech": "Error",
+        "displayText": "error",
+        # "data": data,
+        # "contextOut": [],
+        "source": "apiai-weather-webhook-sample"}
 
 def makeYqlQuery(req):
     result = req.get("result")
