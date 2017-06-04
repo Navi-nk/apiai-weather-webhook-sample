@@ -71,7 +71,9 @@ def getRouteDetails(location):
     bus=[]
     area=[]
     stop=[]
-    for root in locationTree:   
+    print("Inside fun")
+    for root in locationTree:
+         print("Inside fun1")   
   #  print(root.getValue()+'->')  #bus
   #  for val in root.getChildren():
   #      print('\t'+val.getValue()+'->')  #area
