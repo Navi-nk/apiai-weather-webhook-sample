@@ -99,6 +99,7 @@ def getRouteDetails(location):
         else:
             buses+=bus[i]+ (',' if i<n-2 else ('' if i==n-1 else' or ' ))
             res="Please use one of the buses "+buses+" and get down at stop "+stop[0]+" to reach " + area[0]
+    print(res)
     return res
                 
 
