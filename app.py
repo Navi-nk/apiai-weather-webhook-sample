@@ -17,7 +17,7 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
-import locationTree
+frpm locationTree import getRouteDetails
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -51,8 +51,12 @@ def processRequest(req):
         res = makeWebhookResult(data)
         return res
     elif req.get("result").get("action") == "nusBusRouteFind":
+
         location = req.get("result").get("parameters").get("nusLocations")
         res = getRouteDetails(location)
+        print("Response:")
+         print(res)
+
         return {
         "speech": res,
         "displayText": res,
