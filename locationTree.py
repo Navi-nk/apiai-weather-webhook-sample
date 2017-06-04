@@ -35,7 +35,9 @@ class Node:
         node._children.append(self)  
         
     def find(self, value):
-        if self._value is value: 
+        print("WTF"+value)
+        if self._value is value:
+            print("return "+value)
             return self
         for node in self._children:
             n = node.find(value)
@@ -81,7 +83,7 @@ def getRouteDetails(location):
                 print('\t\t'+val1.getValue())  #stop
         print(','+location+',')
         a=root.find(location)
-        print(a.getValue())
+        
         if a is not None:
             print("Inside fun21")
             if not a.getChildren():
@@ -99,6 +101,8 @@ def getRouteDetails(location):
                     bus.append(root.getValue())
                     area.append(a.getValue())
                     stop.append(val.getValue())
+        else:
+            print("WTF")
     buses=""
     n=len(bus)
     for i in range(n):
