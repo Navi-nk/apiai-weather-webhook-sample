@@ -74,11 +74,11 @@ def getRouteDetails(location):
     print("Inside fun")
     for root in locationTree:
         print("Inside fun1")   
-  #  print(root.getValue()+'->')  #bus
-  #  for val in root.getChildren():
-  #      print('\t'+val.getValue()+'->')  #area
-  #      for val1 in val.getChildren():
-  #          print('\t\t'+val1.getValue())  #stop
+        print(root.getValue()+'->')  #bus
+        for val in root.getChildren():
+            print('\t'+val.getValue()+'->')  #area
+            for val1 in val.getChildren():
+                print('\t\t'+val1.getValue())  #stop
         print(','+location+',')
         a=root.find(location)
         if a is not None:
