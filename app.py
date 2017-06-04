@@ -17,7 +17,7 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
-frpm locationTree import getRouteDetails
+from locationTree import getRouteDetails
 
 # Flask app should start in global layout
 app = Flask(__name__)
