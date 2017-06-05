@@ -38,7 +38,7 @@ def createPath(val,parent):
     return node
 
 locationTree=[]
-bus=["A1","A2","B2","D2"]
+bus=["A 1","A 2","B 2","D 2"]
 arr=[
     [("center of maritime studies" , "opposite house 12") , ("pgp" , "prince george's park")],
     [("alumni house","opposite nuss") , ("school of computing","com 2"),("deck","com 2"), ("faculty of arts and social science","ventus"),("computer center","computer centre"),("library","computer centre"),("techno edge","computer centre") , ("faculty of engineering","computer centre") , ("yusof ishak house","opposite yusof ishak house") , ("museum","museum") , ("university health centre","university health centre") , ("sports hall","university health centre") , ("university hall","university hall") , ("faculty of science","s17") , ("kent ridge mrt","kent ridge mrt") , ("prince george's park","pgp")],
